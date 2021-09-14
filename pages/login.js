@@ -34,7 +34,13 @@ function LoginPage() {
 
   return (
     <div className={css["login-container"]}>
-      <video autoPlay muted loop className={css["background-video"]}>
+      <video
+        autoPlay
+        muted
+        loop
+        className={css["background-video"]}
+        poster="petersburg.png"
+      >
         <source src="petersburg.mp4" type="video/mp4" />
       </video>
       <form onSubmit={submitHandler}>
