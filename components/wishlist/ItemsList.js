@@ -26,7 +26,12 @@ function ItemsList(props) {
     <Fragment>
       {items.map((item) => (
         <div className={css["wish--container"]} key={item._id}>
-          <a href={item.link} className={css["wish-link"]} target="_blank">
+          <a
+            href={item.link}
+            className={css["wish-link"]}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <div className={css["wish"]}>
               <div className={css["wish--info"]}>
                 <div className={css["wish--name"]}>{item.name}</div>

@@ -42,6 +42,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://t.me/deadtrace"
+                rel="noopener noreferrer"
               >
                 telegram/deadtrace
               </a>
@@ -49,6 +50,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://instagram.com/stanislav.trace"
+                rel="noopener noreferrer"
               >
                 instagram/stanislav.trace
               </a>
@@ -56,6 +58,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://vk.com/trace"
+                rel="noopener noreferrer"
               >
                 vk/trace
               </a>
@@ -63,6 +66,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://github.com/deadtrace"
+                rel="noopener noreferrer"
               >
                 github/deadtrace
               </a>
@@ -70,6 +74,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://t.me/deadtrace"
+                rel="noopener noreferrer"
               >
                 telegram/deadtrace
               </a>
@@ -77,6 +82,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://instagram.com/stanislav.trace"
+                rel="noopener noreferrer"
               >
                 instagram/stanislav.trace
               </a>
@@ -84,6 +90,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://vk.com/trace"
+                rel="noopener noreferrer"
               >
                 vk/trace
               </a>
@@ -91,6 +98,7 @@ function HomePage() {
                 className={css["news-ticker-item"]}
                 target="_blank"
                 href="https://github.com/deadtrace"
+                rel="noopener noreferrer"
               >
                 github/deadtrace
               </a>

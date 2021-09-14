@@ -1,5 +1,18 @@
 import { getDbConnection } from "../../../helpers/db";
 
+export async function getItems() {
+  const client = await getDbConnection();
+  const db = client.db();
+  const items = await db
+    .collection("items")
+    .find({})
+    .sort({ _id: -1 })
+    .toArray();
+
+  client.close();
+  return items;
+}
+
 async function handler(req, res) {
   try {
     const client = await getDbConnection();

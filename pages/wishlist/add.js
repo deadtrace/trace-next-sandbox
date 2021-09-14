@@ -86,7 +86,7 @@ function AddWishItem() {
           onSubmit={submitHandler}
         >
           <div className="flex justify-center">
-            <Link href="/wishlist">
+            <Link href="/wishlist" passHref>
               <button className="bg-black text-white py-2 px-4 mb-2">
                 К списку
               </button>

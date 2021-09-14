@@ -6,6 +6,7 @@ import Head from "next/head";
 import { Fragment } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/client";
+import { getItems } from "../api/wishlist/index";
 
 function WishlistPage(props) {
   const [category, setCategory] = useState("tech");
@@ -209,7 +210,7 @@ function WishlistPage(props) {
             </div>
 
             {session && (
-              <Link href="/wishlist/add">
+              <Link href="/wishlist/add" passHref>
                 <div className={css["navigation-link"]}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -277,13 +278,12 @@ function WishlistPage(props) {
 export default WishlistPage;
 
 export async function getStaticProps() {
-  // TODO: ВНИЗУ ХУЙНЯ ХАРДКОД
-  const res = await fetch("http://localhost:3000/api/wishlist");
-  const data = await res.json();
+  const data = await getItems();
+  const items = JSON.parse(JSON.stringify(data));
 
   return {
     props: {
-      items: data.items,
+      items,
     },
   };
 }
