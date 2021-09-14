@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
 .main {
   display: flex;
@@ -8,6 +9,7 @@
 .content-part {
   flex-basis: 70%;
   background-color: #3b14f3;
+  position: relative;
 }
 
 .image-part {
@@ -46,8 +48,17 @@
   padding: 15px 30px;
 }
 
+.auth button {
+  color: #3a5651;
+  background-color: #89e316;
+  font-family: "Major Mono Display", monospace;
+  font-size: 18px;
+  border: none;
+}
+
 .logo:hover,
-.auth:hover {
+.auth:hover,
+.auth button:hover {
   cursor: pointer;
 }
 
@@ -81,5 +92,114 @@
 
   to {
     opacity: 0;
+  }
+}
+
+.news-ticker {
+  position: absolute;
+  height: 100%;
+  background-color: white;
+  width: 50px;
+  right: 0;
+  font-family: "VT323", monospace;
+  overflow-y: hidden;
+}
+
+@keyframes news-ticker-animation {
+  0% {
+    top: 0;
+  }
+
+  20% {
+    top: -200px;
+  }
+
+  40% {
+    top: -400px;
+  }
+
+  60% {
+    top: -600px;
+  }
+
+  80% {
+    top: -800px;
+  }
+
+  90% {
+    top: -900px;
+  }
+
+  100% {
+    top: 0;
+  }
+}
+
+.news-ticker-container {
+  color: #3b14f3;
+  font-size: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  position: relative;
+  top: 0;
+  animation-name: news-ticker-animation;
+  animation-duration: 40s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.news-ticker-container:hover {
+  animation-play-state: paused;
+}
+
+.news-ticker a {
+  margin-top: 50px;
+}
+
+@media (max-width: 700px) {
+  .main {
+    flex-direction: column;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .content-part {
+    flex-basis: unset;
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+
+  .image-part {
+    flex-basis: unset;
+    height: 100vh;
+    min-width: 100vw;
+    max-width: 100vw;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header nav ul {
+    flex-direction: column;
+  }
+
+  .header nav ul li + li {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+
+  .header nav {
+    margin: 20px 0;
+    background-color: #3b14f3;
+    padding: 20px;
+  }
+
+  .news-ticker {
+    right: 30px;
   }
 }

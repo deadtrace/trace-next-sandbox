@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
+.background-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  filter: brightness(50%);
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.input-area input {
+  font-family: "Amatic SC", cursive;
+  font-size: 40px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 10px;
+}
+
+#login-button {
+  font-family: "Amatic SC", cursive;
+  font-size: 40px;
+  text-align: center;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#login-button:hover {
+  cursor: pointer;
+}
+
+.input-area input:focus {
+  outline: none;
+}
+
+.input-area + .input-area {
+  margin-top: 20px;
+}
+
+.actions-area {
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  font-family: "Amatic SC", cursive;
+  font-size: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  justify-content: space-evenly;
+}

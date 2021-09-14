@@ -1,16 +1,15 @@
 import css from "./Wishlist.module.css";
 import { useState } from "react";
-import Beauty from "../../components/wishlist/Beauty";
-import Books from "../../components/wishlist/Books";
-import Clothes from "../../components/wishlist/Clothes";
-import Health from "../../components/wishlist/Health";
 import Ideas from "../../components/wishlist/Ideas";
-import Tech from "../../components/wishlist/Tech";
+import ItemsList from "../../components/wishlist/ItemsList";
 import Head from "next/head";
 import { Fragment } from "react";
+import Link from "next/link";
+import { useSession } from "next-auth/client";
 
-function WishlistPage() {
+function WishlistPage(props) {
   const [category, setCategory] = useState("tech");
+  const [session, loading] = useSession();
 
   return (
     <Fragment>
@@ -154,6 +153,35 @@ function WishlistPage() {
               <span className={css["navigation-link-title"]}>Здоровье</span>
             </div>
             <div
+              onClick={() => setCategory("others")}
+              className={
+                category === "others"
+                  ? `${css["navigation-link"]} ${css["navigation-link--active"]}`
+                  : css["navigation-link"]
+              }
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-shopping-cart"
+                width="44"
+                height="44"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="#01AAB0"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <circle cx="6" cy="19" r="2" />
+                <circle cx="17" cy="19" r="2" />
+                <path d="M17 17h-11v-14h-2" />
+                <path d="M6 5l14 1l-1 7h-13" />
+              </svg>
+              <span className={css["navigation-link-title"]}>Другое</span>
+            </div>
+
+            <div
               onClick={() => setCategory("ideas")}
               className={
                 category === "ideas"
@@ -177,16 +205,66 @@ function WishlistPage() {
                 <path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" />
                 <line x1="9.7" y1="17" x2="14.3" y2="17" />
               </svg>
-              <span className={css["navigation-link-title"]}>Другие идеи</span>
+              <span className={css["navigation-link-title"]}>Идеи</span>
             </div>
+
+            {session && (
+              <Link href="/wishlist/add">
+                <div className={css["navigation-link"]}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="icon icon-tabler icon-tabler-circle-plus"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="#01AAB0"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <circle cx="12" cy="12" r="9" />
+                    <line x1="9" y1="12" x2="15" y2="12" />
+                    <line x1="12" y1="9" x2="12" y2="15" />
+                  </svg>
+                  <span className={css["navigation-link-title"]}>Добавить</span>
+                </div>
+              </Link>
+            )}
           </div>
           <div className={css.content}>
-            {category === "beauty" && <Beauty />}
-            {category === "books" && <Books />}
-            {category === "clothes" && <Clothes />}
-            {category === "health" && <Health />}
+            {category === "beauty" && (
+              <ItemsList
+                items={props.items.filter((el) => el.category === "beauty")}
+              />
+            )}
+            {category === "books" && (
+              <ItemsList
+                items={props.items.filter((el) => el.category === "books")}
+              />
+            )}
+            {category === "clothes" && (
+              <ItemsList
+                items={props.items.filter((el) => el.category === "clothes")}
+              />
+            )}
+            {category === "health" && (
+              <ItemsList
+                items={props.items.filter((el) => el.category === "health")}
+              />
+            )}
+            {category === "tech" && (
+              <ItemsList
+                items={props.items.filter((el) => el.category === "tech")}
+              />
+            )}
+            {category === "others" && (
+              <ItemsList
+                items={props.items.filter((el) => el.category === "others")}
+              />
+            )}
             {category === "ideas" && <Ideas />}
-            {category === "tech" && <Tech />}
           </div>
         </section>
         <div className={`${css.circle} ${css.circle1}`}></div>
@@ -197,3 +275,15 @@ function WishlistPage() {
 }
 
 export default WishlistPage;
+
+export async function getStaticProps() {
+  // TODO: ВНИЗУ ХУЙНЯ ХАРДКОД
+  const res = await fetch("http://localhost:3000/api/wishlist");
+  const data = await res.json();
+
+  return {
+    props: {
+      items: data.items,
+    },
+  };
+}
