@@ -1,9 +1,9 @@
 import SneakerItem from "../components/sale-sneakers/sneakerItem";
 import Link from "next/link";
+import chromium from "chrome-aws-lambda";
 
 function Sales(props) {
   const { funkyDunkySneakers } = props;
-  console.log(props);
   return (
     <div>
       <Link href="/">Назад</Link>
@@ -59,8 +59,13 @@ async function getFunkyDunkySneakers(browser) {
 }
 
 export async function getServerSideProps() {
-  const puppeteer = require("puppeteer");
-  const browser = await puppeteer.launch();
+  const browser = await chromium.puppeteer.launch({
+    args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: true,
+    ignoreHTTPSErrors: true,
+  });
 
   const funkyDunkySneakers = await getFunkyDunkySneakers(browser);
 
