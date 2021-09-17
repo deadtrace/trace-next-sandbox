@@ -1,0 +1,104 @@
+.sneaker-card {
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  padding-left: 30px;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 30px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 30px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 30px 0px rgba(34, 60, 80, 0.2);
+}
+
+.sneaker-card + .sneaker-card {
+  margin-top: 20px;
+}
+
+.sneaker-link {
+  max-width: 40%;
+  width: 40%;
+  min-width: 40%;
+  border-radius: 0px 20px 20px 0px;
+  overflow: hidden;
+  margin-left: 30px;
+}
+
+.sneaker-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  display: block;
+}
+
+.sneaker-info {
+  font-family: "Jura", sans-serif;
+}
+
+.sneaker-title {
+  font-size: 22px;
+}
+
+.sneaker-old-price {
+  text-decoration: line-through;
+  font-size: 32px;
+}
+
+.sneaker-new-price {
+  font-size: 40px;
+}
+
+.sneaker-prices-spacer {
+  width: 15px;
+  display: inline-block;
+}
+
+.sneaker-discount {
+  font-size: 32px;
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+}
+
+.sneaker-price-info {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .sneaker-card {
+    flex-direction: column-reverse;
+    padding: 30px;
+  }
+
+  .sneaker-link {
+    max-width: 80%;
+    width: 80%;
+    min-width: 80%;
+    border-radius: 30px;
+    margin-left: 0;
+  }
+
+  .sneaker-info {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .sneaker-title {
+    font-size: 18px;
+  }
+
+  .sneaker-old-price {
+    font-size: 24px;
+  }
+
+  .sneaker-new-price {
+    font-size: 32px;
+  }
+
+  .sneaker-price-info {
+    justify-content: center;
+  }
+}

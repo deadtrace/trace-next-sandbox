@@ -14,3 +14,13 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.go-back-whole-button {
+  background-color: black;
+  color: white;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  text-transform: lowercase;
+}

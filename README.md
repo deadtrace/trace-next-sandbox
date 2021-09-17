@@ -7,6 +7,9 @@ This is a sandbox [Next.js](https://nextjs.org/) project to try new technologies
 - next-auth.js
 - bcryptjs
 - tailwind
+- puppeteer
+- nprogress
+- ajax
 
 ## Where to try
 
