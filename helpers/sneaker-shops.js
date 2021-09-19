@@ -44,6 +44,8 @@ export async function getFunkyDunkySneakers(browser) {
     });
   }
 
+  await page.close();
+
   return { shopName, sneakers };
 }
 
@@ -89,6 +91,8 @@ export async function getKickz4uSneakers(browser) {
       discount,
     });
   }
+
+  await page.close();
 
   return { shopName, sneakers };
 }

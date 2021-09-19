@@ -9,9 +9,6 @@ import React, { Fragment } from "react";
 
 function Sales(props) {
   const { shops } = props;
-  shops.map((shop) => {
-    console.log(shop);
-  });
 
   return (
     <Fragment>
@@ -29,7 +26,7 @@ function Sales(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const browser = await chromium.puppeteer.launch({
     args: [...chromium.args, "--hide-scrollbars", "--disable-web-security"],
     defaultViewport: chromium.defaultViewport,
@@ -38,15 +35,18 @@ export async function getServerSideProps() {
     ignoreHTTPSErrors: true,
   });
 
-  const funkyDunkySneakers = await getFunkyDunkySneakers(browser);
-  const kickz4uSneakers = await getKickz4uSneakers(browser);
+  const shops = await Promise.all([
+    getFunkyDunkySneakers(browser),
+    getKickz4uSneakers(browser),
+  ]);
 
   browser.close();
 
   return {
     props: {
-      shops: [funkyDunkySneakers, kickz4uSneakers],
+      shops,
     },
+    revalidate: 1800,
   };
 }
 
