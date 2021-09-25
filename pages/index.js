@@ -28,7 +28,15 @@ function HomePage() {
             <li>
               <Link href="/sneakers-for-sale">/sneakers</Link>
             </li>
-            <li>/contact</li>
+            <li>
+              <a
+                href="https://t.me/deadtrace"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                /contact
+              </a>
+            </li>
           </ul>
         </nav>
         <div className={css.auth}>

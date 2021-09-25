@@ -1,7 +1,7 @@
 export async function getFunkyDunkySneakers(browser) {
   const page = await browser.newPage();
   await page.goto(
-    "https://funkydunky.ru/catalog/discounts/?m_key=1&type_id[0]=66&size_id[0]=64&size_id[1]=65&price[min]=&price[max]=&productRefresh=1&action=filter"
+    "https://funkydunky.ru/catalog/discounts/?size_id%5B0%5D=65&price%5Bmin%5D=&price%5Bmax%5D=&productRefresh=1&action=filter"
   );
 
   const products = await page.$$(".product");
