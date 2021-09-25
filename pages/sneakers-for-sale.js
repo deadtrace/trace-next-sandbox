@@ -6,6 +6,7 @@ import {
   getKickz4uSneakers,
 } from "../helpers/sneaker-shops";
 import React, { Fragment } from "react";
+// TODO: NEED TO BE REWRITTEN WITH REQUESTS TO API
 
 function Sales(props) {
   const { shops } = props;
@@ -36,7 +37,7 @@ export async function getStaticProps() {
   });
 
   const shops = await Promise.all([
-    getFunkyDunkySneakers(browser),
+    // getFunkyDunkySneakers(browser),
     getKickz4uSneakers(browser),
   ]);
 
