@@ -7,10 +7,10 @@ const ItmoDockerPage = () => {
         <div className={css["main-header"]}>
           <h1 className={css["header"]}>Работа с Docker</h1>
           <span className={css["subtext"]}>
-            в рамках курса "Проектирование информационных систем"
+            в рамках курса &quot;Проектирование информационных систем&quot;
           </span>
           <span className={css["subtext"]}>
-            программа магистратуры "Веб-технологии"
+            программа магистратуры &quot;Веб-технологии&quot;
           </span>
           <span className={css["subtext"]}>
             факультет программной инженерии и компьютерной техники (ФПИ и КТ)
@@ -27,14 +27,15 @@ const ItmoDockerPage = () => {
         <div className={css["card"]}>
           <h2 className={css["card-header"]}>Задание 1</h2>
           <p className={css["card-paragraph"]}>
-            &emsp;Создать статический сайт, возвращающий "Hello world" страницу
-            на запрос GET '/'. Возможно использовать любую удобную технологию.
-            Необходимо создать Docker-образ и опубликовать его на Docker Hub.
+            &emsp;Создать статический сайт, возвращающий &quot;Hello world&quot;
+            страницу на запрос GET &quot;/&quot;. Возможно использовать любую
+            удобную технологию. Необходимо создать Docker-образ и опубликовать
+            его на Docker Hub.
           </p>
           <p className={css["card-paragraph"]}>
             &emsp;Был использован Next.js, создана статичная декоративная
-            страница на '/'. Инструкции по запуску есть в описании репозиториев.
-            Не использовался docker-compose.
+            страница на &quot;/&quot;. Инструкции по запуску есть в описании
+            репозиториев. Не использовался docker-compose.
           </p>
           <div className={css["links"]}>
             <a
