@@ -56,6 +56,39 @@ const ItmoDockerPage = () => {
             </a>
           </div>
         </div>
+        <div className={css["card"]}>
+          <h2 className={css["card-header"]}>Задание 2</h2>
+          <p className={css["card-paragraph"]}>
+            &emsp;Создать сайт-счётчик, возвращающий показатель счётчика на
+            &quot;/&quot; странице. Каждое посещение &quot;/stat&quot;
+            инкрементирует счетчик. На &quot;/about&quot; вывести пользовальское
+            приветствие. Возможно использовать любую удобную технологию.
+            Необходимо создать Docker-образ и опубликовать его на Docker Hub.
+          </p>
+          <p className={css["card-paragraph"]}>
+            &emsp;Для создрания приложения был использован Next.js. Инструкции
+            по запуску есть в описании репозиториев. Не использовался
+            docker-compose.
+          </p>
+          <div className={css["links"]}>
+            <a
+              href="https://github.com/deadtrace/next-increment"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={css["link"]}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://hub.docker.com/r/deadtrace/next-increment"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={css["link"]}
+            >
+              DockerHub
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
