@@ -95,6 +95,42 @@ const ItmoDockerPage = () => {
             </a>
           </div>
         </div>
+        <div className={css["card"]}>
+          <h2 className={css["card-header"]}>Задание 3</h2>
+          <p className={css["card-paragraph"]}>
+            &emsp;Создать сайт-счётчик, возвращающий показатель счётчика на
+            &quot;/&quot; странице. Каждое посещение &quot;/stat&quot;
+            инкрементирует счетчик. На &quot;/about&quot; вывести пользовальское
+            приветствие. Возможно использовать любую удобную технологию. В
+            данной вариации необходимо использовать стороннее хранилище данных,
+            а также сохранять значение счётчика при остановке контейнера.
+          </p>
+          <p className={css["card-paragraph"]}>
+            &emsp;Для создрания приложения был использован Express, а также
+            Redis в качестве хранилища данных. Для сохранения состояния
+            использовались Docker volumes. Для использования нескольких
+            контейнеров одновременно (приложение на Express и Redis)
+            использовался docker-compose.
+          </p>
+          <div className={css["links"]}>
+            <a
+              href="https://github.com/deadtrace/express-redis-docker-visit-counter"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={css["link"]}
+            >
+              GitHub
+            </a>
+            <a
+              href="https://hub.docker.com/r/deadtrace/express-redis-visit-counter"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={css["link"]}
+            >
+              DockerHub
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
