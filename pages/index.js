@@ -26,9 +26,6 @@ function HomePage() {
               <Link href="/wishlist">/wishlist</Link>
             </li>
             <li>
-              <Link href="/sneakers-for-sale">/sneakers</Link>
-            </li>
-            <li>
               <a
                 href="https://t.me/deadtrace"
                 target="_blank"
