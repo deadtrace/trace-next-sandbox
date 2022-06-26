@@ -9,17 +9,21 @@ function ItemsList(props) {
   // TODO: no rerendering
   const [items, setItems] = useState(props.items);
   function deleteHandler(item) {
-    axios
-      .delete(`/api/wishlist/${item._id}`)
-      .then(() => {
-        let newItems = items;
-        let index = newItems.indexOf(item);
-        if (index > -1) {
-          newItems.splice(index, 1);
-        }
-        setItems(newItems);
-      })
-      .catch(() => {});
+    if (
+      window.confirm(`Вы действительно хотите удалить из списка ${item.name}?`)
+    ) {
+      axios
+        .delete(`/api/wishlist/${item._id}`)
+        .then(() => {
+          let newItems = [...items];
+          let index = newItems.indexOf(item);
+          if (index > -1) {
+            newItems.splice(index, 1);
+          }
+          setItems(newItems);
+        })
+        .catch(() => {});
+    }
   }
 
   return (

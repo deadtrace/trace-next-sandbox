@@ -277,7 +277,7 @@ function WishlistPage(props) {
 
 export default WishlistPage;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await getItems();
   const items = JSON.parse(JSON.stringify(data));
 
@@ -285,6 +285,5 @@ export async function getStaticProps() {
     props: {
       items,
     },
-    revalidate: 1800,
   };
 }
